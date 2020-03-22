@@ -9,7 +9,7 @@ RUN \
   apt-get -y upgrade && \
   apt-get install -y python python-pip python-dev build-essential libyaml-dev
 
- RUN apt-get -y install git
+# RUN apt-get -y install git
 
  RUN pip install mkdocs
 
