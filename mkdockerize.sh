@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#docker build  .
-#docker container run --publish 8000:8080 --detach --name bb mkdocsimage:1.0
-
 function produce(){
 	mkdocs new my-project  
 	cd my-project
@@ -15,26 +12,18 @@ function produce(){
 
 function serve(){
 	echo "serve function"
-	cd /my-project/site
-	tar xvzf stdin.tar.gz > /my-project/
 	cd /my-project
-	ls -lrt
-	mkdocs serve -a 63.34.11.133:8000	
+	tar xvzf /my-project/site/stdin.tar.gz 
+	mkdocs serve  -a 0.0.0.0:8001
 }
 
-a=$1 
-echo "input is " $a
+inputArg=$1 
 
-if [ "$a" == "produce" ]; then
-echo "inside produce if loop"
+if [ "$inputArg" == "produce" ]; then
 produce
 fi
 
-if [ " $a" == "serve" ]; then
-echo "inside server if loop"
+if [ "$inputArg" == "serve" ]; then
 serve
 fi
 
-#######   docker container run --publish 8000:8080 --name bb mkdocsimage:1.0
-
-#docker run  -v /home/ubuntu/test:/root/my-project  -name tester1  mkdocsimage:latest
