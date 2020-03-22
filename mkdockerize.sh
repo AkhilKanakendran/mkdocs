@@ -4,20 +4,21 @@
 #docker container run --publish 8000:8080 --detach --name bb mkdocsimage:1.0
 
 function produce(){
-	echo "produce function"
-	mkdocs new my-project
-	cd /mkdocs  
+	mkdocs new my-project  
+	cd my-project
 	mkdocs build --clean 
-	cd /mkdocs/site
+	cd /my-project/site
 	tar -czvf stdin.tar.gz *
 	echo "site/" >> .gitignore 
-	tar -tf stdin.tar.gz
+	#tar -tf stdin.tar.gz
 }
 
 function serve(){
 	echo "serve function"
-	cd /mkdocs/site
-	#tar xvzf stdin.tar.gz > 
+	cd /my-project/site
+	tar xvzf stdin.tar.gz > /my-project/
+	cd /my-project
+	ls -lrt
 	mkdocs serve -a 63.34.11.133:8000	
 }
 
