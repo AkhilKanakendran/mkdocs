@@ -6,9 +6,9 @@
 function produce(){
 	echo "produce function"
 	mkdocs new my-project
-	cd my-project  
+	cd /mkdocs  
 	mkdocs build --clean 
-	cd /my-project/site
+	cd /mkdocs/site
 	tar -czvf stdin.tar.gz *
 	echo "site/" >> .gitignore 
 	tar -tf stdin.tar.gz
@@ -16,6 +16,8 @@ function produce(){
 
 function serve(){
 	echo "serve function"
+	cd /mkdocs/site
+	#tar xvzf stdin.tar.gz > 
 	mkdocs serve -a 63.34.11.133:8000	
 }
 
