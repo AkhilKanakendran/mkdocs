@@ -14,7 +14,7 @@ function serve(){
 	echo "serve function"
 	cd /my-project
 	tar xvzf /my-project/site/stdin.tar.gz 
-	mkdocs serve  -a 0.0.0.0:8001
+	mkdocs serve  
 }
 
 inputArg=$1 
