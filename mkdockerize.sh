@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# function to build the project
 function produce(){
 	mkdocs new my-project  
 	cd my-project
@@ -10,6 +11,7 @@ function produce(){
 	#tar -tf stdin.tar.gz
 }
 
+# function to output the project to the site
 function serve(){
 	echo "serve function"
 	cd /my-project
@@ -17,8 +19,10 @@ function serve(){
 	mkdocs serve  
 }
 
+# Argument is stored in the inputArg variable
 inputArg=$1 
 
+#  logic to determine the function to be executed
 if [ "$inputArg" == "produce" ]; then
 produce
 fi
